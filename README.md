@@ -62,6 +62,8 @@ TODO
 ---
 
 - [ ] move fetching weather details to Netlify function. Because "The environment variables exist in the build system alone. They do not exist anymore once the build completes."
+  - https://answers.netlify.com/t/environment-variables-not-working-in-production/54838/4
+  - https://answers.netlify.com/t/support-guide-how-do-i-keep-my-api-keys-tokens-safe-using-netlify-functions/293
 - [ ] Add loading states and skeleton screens
 - [ ] Trim movie overview text
 - [ ] Add Play button on hover
