@@ -61,6 +61,7 @@ Design Inspiration
 TODO
 ---
 
+- [ ] move fetching weather details to Netlify function. Because "The environment variables exist in the build system alone. They do not exist anymore once the build completes."
 - [ ] Add loading states and skeleton screens
 - [ ] Trim movie overview text
 - [ ] Add Play button on hover
@@ -152,7 +153,5 @@ npm run eject
 
 
 [Icons](https://thenounproject.com/browse/collection-icon/entertainment-and-movie-solid-streaming-on-screen-127119/?p=1)
-
-Movie by WEBTECHOPS LLP from <a href="https://thenounproject.com/browse/icons/term/movie/" target="_blank" title="Movie Icons">Noun Project</a> (CC BY 3.0)
-
-Movie by TTHNga from <a href="https://thenounproject.com/browse/icons/term/movie/" target="_blank" title="Movie Icons">Noun Project</a> (CC BY 3.0)
+- Movie by WEBTECHOPS LLP from <a href="https://thenounproject.com/browse/icons/term/movie/" target="_blank" title="Movie Icons">Noun Project</a> (CC BY 3.0)
+- Movie by TTHNga from <a href="https://thenounproject.com/browse/icons/term/movie/" target="_blank" title="Movie Icons">Noun Project</a> (CC BY 3.0)

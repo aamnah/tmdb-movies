@@ -23,4 +23,4 @@ publish = 'build/'
 # these settings.
 [context.production]
   publish = "build/"
-  command = "REACT_APP_TMDB_API_TOKEN=${REACT_APP_TMDB_API_TOKEN} npm run build"
+  command = "npm run build"
