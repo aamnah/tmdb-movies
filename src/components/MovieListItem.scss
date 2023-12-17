@@ -1,0 +1,146 @@
+$border_radius: 16px;
+// $max-height: 231px;
+$max-height: 964px;
+
+.MovieListItem {
+  border: 2px solid transparent;
+  border-radius: $border_radius;
+  background: rgba(255,255,255, 0.1);
+  box-shadow: 4px 4px 16px rgba(0,0,0,0.1);
+  color: rgba(255,255,255, 0.5);
+  width: 100%;
+  
+  transition: all .3s ease-in-out;
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-self: stretch; // make all items equal in height
+  
+  @media screen and (min-width: 600px) {
+    flex-direction: column;
+    flex-basis: calc(calc(100% / 2) - 5em);
+  }
+  @media screen and (min-width: 1000px) {
+    flex-basis: calc(calc(100vw / 3) - 5em);
+  }
+  
+  @media screen and (min-width: 1400px) {
+    flex-basis: calc(calc(100vw / 4) - 4em);
+  }
+
+  &:hover {
+    cursor: pointer;
+    border-color: var(--color-red-crayola);
+    background-color: #ED254E90;
+    color: rgba(255, 255, 255, 1);
+  }
+
+  &__Poster {
+    // border needs to be the same as the MovieListItem border radius
+    border-top-left-radius: $border_radius; 
+    border-top-right-radius: $border_radius;
+    // max-height: $max-height;
+
+    @media screen and (max-width: 600px) {
+      max-height: 231px;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: $border_radius;
+    }
+  }
+
+  &__Details {
+    padding: 1em;
+    // color: rgba(255, 255, 255, .5);
+
+    // Header includes Title and Rating
+    header {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1em;
+
+      @media screen and (min-width: 600px) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
+        align-items: baseline;
+      }
+    }
+  }
+
+  &__Trailer {
+    display: flex;
+    gap: .5em;
+    align-items: center;
+
+    a {
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    svg {
+      width: 2em;
+    }
+  }
+
+  &__Title {
+    margin: 0;
+    margin-bottom: 0.4em;
+    color: rgba(255,255,255, 0.8);
+  }
+
+  &__Overview {
+    // Do not show overview on smaller screen, not enough space
+    display: none;
+
+    @media screen and (min-width: 600px) {
+      display: inherit;
+    }
+  }
+  
+}
+
+// make the height of the movie item component and movie poster the same 
+// when the layout shows as row on smaller screens 
+@media screen and (max-width: 600px) {
+  .MovieListItem,
+  .MovieListItem__Poster {
+    max-height: 231px;
+  }
+}
+
+
+
+.Modal {
+  background: black;
+  width: 100%;
+  border-radius: 16px;
+  padding: 2em;
+  text-align: right;
+}
+.ModalCloseButton {
+  background: white;
+  color: black;
+  border: none;
+  outline: none;
+  padding: 1em;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+
+.ModalOverlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 2em;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.8);
+}

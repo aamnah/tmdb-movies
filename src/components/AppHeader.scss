@@ -1,0 +1,39 @@
+.AppHeader {
+  margin-bottom: 3em;
+}
+
+.MainNav {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  // border: 1px solid red;
+
+
+
+  a {
+    text-decoration: none;
+    background: rgba(255,255,255,0.1);
+    padding: .8em 1.6em;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    font-weight: 600;
+    
+    display: flex;
+    gap: .4em;
+    justify-content: center;
+    align-items: center;
+    // width: 100%;
+    // flex-basis: fit-content;
+    
+    &:hover,
+    &:focus {
+      border-color: rgba(237 37 78 / 0.5);
+      background-color: rgba(237 37 78 / 0.2);
+      outline: none;
+    }
+    &:active {
+      border-color: var(--color-red-crayola);
+      background-color: rgba(237, 37, 78, 0.5647058824);
+    }
+  }
+}
