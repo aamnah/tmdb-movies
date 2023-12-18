@@ -1,7 +1,6 @@
 import axios, { AxiosResponseTransformer } from 'axios'
 
-const TMDB_API_TOKEN =
-  'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OGU5ODU5OWYwMWExZDE5MzQxZDk2MTgyNjg2ZDYyOCIsInN1YiI6IjY0ZmM5ZDEwZGMxY2I0MDBiMGJiNGEyMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.T2-CgrGWkCRpSc-Ci8qH6w-5QEPBoMwRja2RUIwwsuw'
+const TMDB_API_TOKEN = process.env.REACT_APP_TMDB_API_TOKEN
 const TMDB_API_BASE_URL = 'https://api.themoviedb.org/3'
 
 const TMDB_API_ENDPOINT = {
