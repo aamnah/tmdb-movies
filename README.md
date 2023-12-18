@@ -113,6 +113,8 @@ npm i react-modal
 npm i --save-dev @types/react-modal
 ```
 
+# Netlify Edge Functions
+
 # Deploy to Netlify
 
 ```bash
