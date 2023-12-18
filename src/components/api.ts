@@ -1,6 +1,11 @@
 import axios from 'axios'
 
 const TMDB_API_TOKEN = process.env.REACT_APP_TMDB_API_TOKEN
+console.log(
+  '🚀 ~ file: api.ts:4 ~ process.env.REACT_APP_TMDB_API_TOKEN:',
+  process.env.REACT_APP_TMDB_API_TOKEN
+)
+console.log('🚀 ~ file: api.ts:4 ~ TMDB_API_TOKEN:', TMDB_API_TOKEN)
 
 export async function fetchNowPlayingMovies() {
   // https://axios-http.com/docs/req_config
