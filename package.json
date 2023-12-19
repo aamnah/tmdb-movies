@@ -2,6 +2,7 @@
   "name": "e04-movies",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@netlify/edge-functions": "^2.2.0",
     "@testing-library/jest-dom": "^5.17.0",

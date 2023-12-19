@@ -66,7 +66,7 @@ MovieListItemProps) {
   }, [])
 
   let movieTrailer = { name: '', url: '', id: '' }
-  if (movieDetails) {
+  if (movieDetails && movieDetails.videos.results) {
     movieTrailer = getMovieTrailer(movieDetails.videos.results)
   }
 

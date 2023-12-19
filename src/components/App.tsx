@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import AppHeader from './AppHeader'
 import MovieListItem from './MovieListItem'
 import { getPosterURL } from './helpers'
-import { fetchNowPlayingMovies } from './api'
 
 import './App.scss'
 
@@ -10,12 +9,21 @@ const youtube_vid = `https://www.youtube.com/watch?v=19ikl8vy4zs`
 
 function App() {
   const [nowPlayingMovies, setNowPlayingMovies] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  async function fetchNowPlayingMovies() {
+    const response = await fetch('/api/movies')
+    const json = await response.json()
+
+    return json.data.results
+  }
 
   useEffect(() => {
     fetchNowPlayingMovies()
-      .then((results) => setNowPlayingMovies(results))
-
-      // make sure to catch any error
+      .then((results) => {
+        setNowPlayingMovies(results)
+        setLoading(false)
+      })
       .catch((error) => console.error(error))
   }, [])
 
