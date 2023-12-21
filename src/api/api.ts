@@ -15,10 +15,17 @@ const TMDB_API_BASE_URL = 'https://api.themoviedb.org/3'
 // }
 
 export async function fetchNowPlayingMovies() {
-  const response = await fetch('/api/now_playing')
-  const json = await response.json()
+  try {
+    const response = await fetch('/api/now_playing')
+    const json = await response.json()
 
-  return json.data.results
+    // console.log(`Now Playing Movies:`, response.data.results)
+
+    return json.data.results
+  } catch (error) {
+    console.error(`There was an error with the Axios request: \n${error}`)
+    return error
+  }
 }
 
 export async function fetchMovieDetails(movieId: number) {

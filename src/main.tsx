@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './components/App.tsx'
 import './index.scss'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import NowPlaying from './routes/NowPlaying.tsx'

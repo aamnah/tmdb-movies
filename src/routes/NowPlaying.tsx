@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
 import MovieListItem from '../components/MovieListItem'
-import { getPosterURL } from '../components/helpers'
+import { getPosterURL } from '../helpers'
 import { fetchNowPlayingMovies } from '../api/api'
-
-// const youtube_vid = `https://www.youtube.com/watch?v=19ikl8vy4zs`
 
 export default function NowPlayingPage() {
   const [nowPlayingMovies, setNowPlayingMovies] = useState([])
@@ -41,14 +39,6 @@ export default function NowPlayingPage() {
       ) : (
         <p>Could not find any movies</p>
       )}
-
-      {/* <MovieListItem
-          id={615656}
-          title="Meg 2: The Trench"
-          overview="An exploratory dive into the deepest depths of the ocean of a daring research team spirals into chaos when a malevolent mining operation threatens their mission and forces them into a high-stakes battle for survival."
-          posterPath={getPosterURL({path: `/4m1Au3YkjqsxF8iwQy0fPYSxE0h.jpg`, width: 300})}
-          rating={7}
-        /> */}
     </div>
   )
 }
