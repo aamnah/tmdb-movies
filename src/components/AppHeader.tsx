@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom'
 
 export default function AppHeader() {
   return (
-    <header className="AppHeader">
-      <nav className="MainNav">
+    <header className="text-center mb-12">
+      <nav className="MainNav flex justify-center gap-4">
         <NavLink to="/now-playing">
           <svg
             viewBox="0 0 512 512"

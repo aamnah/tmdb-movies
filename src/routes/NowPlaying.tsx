@@ -17,7 +17,7 @@ export default function NowPlayingPage() {
   }, [])
 
   return (
-    <div className="MovieList md:columns-4 lg:columns-6">
+    <div className="MovieList md:columns-3 lg:columns-4 xl:columns-6">
       {loading ? (
         <p>Loading..</p>
       ) : nowPlayingMovies ? (

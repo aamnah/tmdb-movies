@@ -1,38 +1,20 @@
 .App {
-  // background: rgba(255,255,255,0.05);
-  background-color: var(--color-rich-black);
-  
-  display: flex;
-  flex-direction: column;
-  
-  padding: 1em;
-
-  color: white;
-
-  & > header {
-      text-align: center;
-  }
-
-  small {
-    font-size: .8em;
-  }
-
   a {
     color: white;
   }
 }
 
-.MovieList {
-  display: flex;
-  gap: 3em;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-content: flex-start;
-  align-items: flex-start;
+// .MovieList {
+//   display: flex;
+//   gap: 3em;
+//   flex-flow: column wrap;
+//   justify-content: center;
+//   align-content: flex-start;
+//   align-items: flex-start;
 
 
   
-  @media screen and (min-width: 600px) {
-    flex-flow: row wrap;
-  }
-}
+//   @media screen and (min-width: 600px) {
+//     flex-flow: row wrap;
+//   }
+// }

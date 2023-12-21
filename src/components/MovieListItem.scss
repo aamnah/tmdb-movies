@@ -3,32 +3,17 @@ $border_radius: 16px;
 $max-height: 964px;
 
 .MovieListItem {
-  border: 2px solid transparent;
-  border-radius: $border_radius;
   background: rgba(255,255,255, 0.1);
   box-shadow: 4px 4px 16px rgba(0,0,0,0.1);
   color: rgba(255,255,255, 0.5);
-  width: 100%;
   
   transition: all .3s ease-in-out;
-
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  align-self: stretch; // make all items equal in height
   
   @media screen and (min-width: 600px) {
     flex-direction: column;
-    flex-basis: calc(calc(100% / 2) - 5em);
+    // flex-basis: calc(calc(100% / 2) - 5em);
   }
-  @media screen and (min-width: 1000px) {
-    flex-basis: calc(calc(100vw / 3) - 5em);
-  }
-  
-  @media screen and (min-width: 1400px) {
-    flex-basis: calc(calc(100vw / 4) - 4em);
-  }
-
+ 
   &:hover {
     cursor: pointer;
     border-color: var(--color-red-crayola);
@@ -49,30 +34,8 @@ $max-height: 964px;
     }
   }
 
-  &__Details {
-    padding: 1em;
-    // color: rgba(255, 255, 255, .5);
-
-    // Header includes Title and Rating
-    header {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 1em;
-
-      @media screen and (min-width: 600px) {
-        flex-direction: row;
-        justify-content: space-between;
-        align-content: center;
-        align-items: baseline;
-      }
-    }
-  }
 
   &__Trailer {
-    display: flex;
-    gap: .5em;
-    align-items: center;
-
     a {
       text-decoration: none;
       font-weight: 600;
@@ -84,8 +47,6 @@ $max-height: 964px;
   }
 
   &__Title {
-    margin: 0;
-    margin-bottom: 0.4em;
     color: rgba(255,255,255, 0.8);
   }
 
@@ -118,6 +79,7 @@ $max-height: 964px;
   padding: 2em;
   text-align: right;
 }
+
 .ModalCloseButton {
   background: white;
   color: black;
@@ -137,10 +99,10 @@ $max-height: 964px;
   align-content: center;
   padding: 2em;
 
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255,255,255,0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255,255,255,0.8);
 }
