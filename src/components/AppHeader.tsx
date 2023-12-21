@@ -1,12 +1,11 @@
 import './AppHeader.scss'
+import { NavLink } from 'react-router-dom'
 
 export default function AppHeader() {
   return (
     <header className="AppHeader">
-      <h1>Let's find a movie to watch.. </h1>
-
       <nav className="MainNav">
-        <a href="/">
+        <NavLink to="/now-playing">
           <svg
             viewBox="0 0 512 512"
             fill="none"
@@ -46,10 +45,10 @@ export default function AppHeader() {
             />
           </svg>
           Now Playing
-        </a>
-        <a href="/">Popular</a>
-        <a href="/">Top Rated</a>
-        <a href="/">Upcoming</a>
+        </NavLink>
+        <NavLink to="/popular">Popular</NavLink>
+        <NavLink to="/top-rated">Top Rated</NavLink>
+        <NavLink to="/upcoming">Upcoming</NavLink>
       </nav>
     </header>
   )
