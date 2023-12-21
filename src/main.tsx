@@ -18,6 +18,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+        index: true,
+        element: <NowPlaying />,
+      },
+      {
         path: 'now-playing',
         element: <NowPlaying />,
       },
