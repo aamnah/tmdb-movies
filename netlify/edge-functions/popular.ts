@@ -2,7 +2,7 @@ import type { Config, Context } from '@netlify/edge-functions'
 
 // Note that environment variables declared in a Netlify configuration file (netlify.toml) are not available to functions.
 // process.env vars are also not available
-const API_ENDPOINT = 'https://api.themoviedb.org/3/movie/now_playing'
+const API_ENDPOINT = 'https://api.themoviedb.org/3/movie/popular'
 
 export default async function fetchNowPlayingMovies(
   request: Request,
@@ -17,7 +17,7 @@ export default async function fetchNowPlayingMovies(
       headers: { Authorization: `Bearer ${API_TOKEN}` },
     })
     const data = await response.json()
-    console.log(`Now Playing movies:`, data.results)
+    console.log(`Popular movies:`, data.results)
     return Response.json(
       { data },
       // Add a second parameter to `Response.json`
@@ -31,11 +31,9 @@ export default async function fetchNowPlayingMovies(
       }
     )
   } catch (error) {
-    console.error(
-      `There was an error with fetching Now Playing movies: \n${error}`
-    )
+    console.error(`There was an error with fetching Popular movies: \n${error}`)
     return Response.json({ error: 'Failed fetching data' }, { status: 500 })
   }
 }
 
-export const config: Config = { path: '/api/now_playing', cache: 'manual' }
+export const config: Config = { path: '/api/popular', cache: 'manual' }
