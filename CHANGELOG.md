@@ -11,7 +11,10 @@ TODO
 - [ ] Show rotten tomatoes and imdb ratings
 - [x] Fetch videos for every movie
 - [x] Find the best video (official, trailer) among the videos array and link to that
-
+- [ ] Add Routing with React Router
+- [ ] Convert from Sass to TailwindCSS
+- [ ] Add API response caching
+- [ ] Bug: Not all movies have trailers (For example: Muchachos, la película de la gente, ID: 1206029) Causes a name not found error
 
 ## 2023-12-19
 - [x] Move to Vite because CRA is no longer maintained and was giving warnings

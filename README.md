@@ -6,7 +6,7 @@
 [DEMO](https://wuip-movies.netlify.app/)
 
 - Built with [Vite](https://vitejs.dev/guide/), [React](), [TypeScript](). 
-- Deployed with [Netlify]()
+- Deployed with [Netlify]() and [Netlify CLI](https://www.netlify.com/platform/core/cli/)
 - Uses [TMDB API](https://developer.themoviedb.org/reference/movie-now-playing-list)
 
 Environment variables are coming from Netlify
