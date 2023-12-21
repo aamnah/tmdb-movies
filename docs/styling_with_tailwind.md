@@ -1,0 +1,1 @@
+- `:not` can be implemented with [Tailwind arbitrary variants](https://tailwindcss.com/docs/adding-custom-styles#arbitrary-variants) `[&:not(:last-child)]:after:content-['\2022'] `
