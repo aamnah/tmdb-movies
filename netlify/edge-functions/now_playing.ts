@@ -27,6 +27,7 @@ export default async function fetchNowPlayingMovies(
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Methods': 'GET,OPTIONS',
+          'Cache-Control': 'public, s-maxage=3600', // 3600s = 60m
         },
       }
     )
@@ -38,4 +39,4 @@ export default async function fetchNowPlayingMovies(
   }
 }
 
-export const config: Config = { path: '/api/now_playing' }
+export const config: Config = { path: '/api/now_playing', cache: 'manual' }
