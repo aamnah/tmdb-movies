@@ -23,4 +23,4 @@ publish = "build/"
 # these settings.
 [context.production]
   publish = "build/"
-  command = "npm run build"
+  command = "CI=false npm run build" # When process.env.CI = true, Deploy fails because warnings are treated as errors. Netlify sets it TRUE automatically.
