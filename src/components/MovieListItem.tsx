@@ -120,7 +120,7 @@ MovieListItemProps) {
                 />
               </svg>
               <a
-                // href={movieTrailer.url}
+                href={movieTrailer.url}
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => openModal()}

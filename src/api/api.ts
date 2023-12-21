@@ -1,14 +1,13 @@
-import axios, { AxiosResponseTransformer } from 'axios'
-
+import axios from 'axios'
 
 const TMDB_API_TOKEN = process.env.REACT_APP_TMDB_API_TOKEN
 const TMDB_API_BASE_URL = 'https://api.themoviedb.org/3'
 
-const TMDB_API_ENDPOINT = {
-  movie_now_playing: '/movie/now_playing',
-  movie_genre_list: '/genre/movie/list',
-  movie_videos: `/movie/{movie_id}/videos`,
-}
+// const TMDB_API_ENDPOINT = {
+//   movie_now_playing: '/movie/now_playing',
+//   movie_genre_list: '/genre/movie/list',
+//   movie_videos: `/movie/{movie_id}/videos`,
+// }
 
 export async function fetchNowPlayingMovies() {
   const response = await fetch('/api/now_playing')

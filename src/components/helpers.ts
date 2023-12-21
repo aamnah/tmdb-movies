@@ -48,6 +48,7 @@ export async function getMovieTrailer(videos: Array<MovieVideoResponseType>) {
 
         return videoObject
       }
+      return videoObject
     })
   }
   // console.log(`videoObject2:`, videoObject)
