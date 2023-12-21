@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/react-modal": "^3.16.1",
     "@types/youtube-player": "^5.5.8"
   }
