@@ -11,7 +11,7 @@ export default async function fetchNowPlayingMovies(
 ) {
   const REQUEST_TOKEN = request.headers.get('X-API-Key')
   // Netlify Functions have access to environment variables in the runtime environment via the Netlify.env global object.
-  const API_TOKEN = Netlify.env.get('REACT_APP_TMDB_API_TOKEN')
+  const API_TOKEN = Netlify.env.get('VITE_TMDB_API_TOKEN')
 
   try {
     const response = await fetch(API_ENDPOINT, {

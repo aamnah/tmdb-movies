@@ -1,6 +1,11 @@
 import axios from 'axios'
 
-const TMDB_API_TOKEN = process.env.REACT_APP_TMDB_API_TOKEN
+const TMDB_API_TOKEN: string = import.meta.env.VITE_TMDB_API_TOKEN
+console.log('🚀 ~ file: api.ts:4 ~ TMDB_API_TOKEN:', TMDB_API_TOKEN)
+console.log(
+  '🚀 ~ file: api.ts:4 ~ import.meta.env.VITE_TMDB_API_TOKEN:',
+  import.meta.env.VITE_TMDB_API_TOKEN
+)
 const TMDB_API_BASE_URL = 'https://api.themoviedb.org/3'
 
 // const TMDB_API_ENDPOINT = {
