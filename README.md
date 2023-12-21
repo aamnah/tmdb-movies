@@ -5,42 +5,25 @@
 
 [DEMO](https://wuip-movies.netlify.app/)
 
-```bash
-# create React+TypeScript app in the current folder
-npx create-react-app . --template typescript
+- Built with [Vite](https://vitejs.dev/guide/), [React](), [TypeScript](). 
+- Deployed with [Netlify]()
+- Uses [TMDB API](https://developer.themoviedb.org/reference/movie-now-playing-list)
 
-# install dependencies
-npm i axios sass
-```
+Environment variables are coming from Netlify
 
 ```bash
-http://localhost:3000/
+# npm run dev 
+#http://localhost:3000/
+
+# Run the app with Netlify
+# if you want environment variables saved in Netlify build environment to be available
+# for example: if your Netlify functions use API keys saved as env vars in Netlify
+netlify dev
+# http://localhost:8888
 ```
 
-Indent is `Tab` and unindent is `Shift`+`Tab`
+`netlify dev` will also take care of detecting and running the library/framework setup (React, CRA, Vite etc.); you do not need to run `npm run dev` separately
 
-API
----
-
-API endpoints that i need to call
-
-- [Now playing](https://developer.themoviedb.org/reference/movie-now-playing-list)
-- [Videos (to get trailer videos by movieId)](https://developer.themoviedb.org/reference/movie-videos)
-- [Genres (to get genres by genreId)](https://developer.themoviedb.org/reference/genre-movie-list)
-
-```md
-# Get a list of movies that are currently in theatres.
-GET https://api.themoviedb.org/3/movie/now_playing
-
-# Get the list of official genres for movies.
-GET https://api.themoviedb.org/3/genre/movie/list
-
-# Videos
-GET https://api.themoviedb.org/3/movie/{MOVIE_ID}/videos
-
-# Get movie details (including genre names) plus videos
-https://api.themoviedb.org/3/movie/{MOVIE_ID}?api_key={API_KEY}&append_to_response=videos
-```
 
 Links
 ---
@@ -58,88 +41,9 @@ Design Inspiration
 - [Dribbble - Amara Irobi](https://dribbble.com/shots/19190864-Cinema-Information-Website-Mobile-View)
 - [Dribbble - IX Studio](https://dribbble.com/shots/19889469-FilMAX-Movie-Film-Cinema-TV-Template)
 
-TODO
+Credits
 ---
-
-- [ ] move fetching weather details to Netlify function. Because "The environment variables exist in the build system alone. They do not exist anymore once the build completes."
-  - https://answers.netlify.com/t/environment-variables-not-working-in-production/54838/4
-  - https://answers.netlify.com/t/support-guide-how-do-i-keep-my-api-keys-tokens-safe-using-netlify-functions/293
-- [ ] Add loading states and skeleton screens
-- [ ] Trim movie overview text
-- [ ] Add Play button on hover
-- [x] Fetch videos for every movie
-- [x] Find the best video (official, trailer) among the videos array and link to that
-- [ ] Play movie trailer on click
-- [ ] Add Load More or Infinite Scroll for _Now Playing_
-- [ ] Add _Popular_, _Top Rated_ and _Upcoming_ movie lists
-- [ ] Fetch smaller images on small devices
-- [x] Add manifest icons and update web manifest
-- [x] deploy the app to Netlify
-- [ ] Show rotten tomatoes and imdb ratings
-NOTES
----
-
-- Deleting a freshly installed project takes 7 minutes, all time taken by node_modules. Creating a new one takes a similar amount of time.
-
-
-What did i learn
----
-- How to use index signatures for objects in TypeScript. Index signatures are used when you don't know the names of a type's properties ahead of time (in my case API response objects), but you do know the shape of the values. For example:
-
-```ts
-interface StringArray {
-  [index: number]: string;
-}
-```
-
-- `manifest.json` files. How to add a web app manifest, app icons and theme colors.
-
-- how to open and close modals in React apps (specially when you have nested components. Prop drilling is not nice.)
-
-- How to interface with TMDB API
-
-
-Qs
-- How to make sure we have a response from the API before looping over it? So that it doesn't give the error `undefined`.
-  - Irrelevant, it was returning undefined because response was a string that we were trying to `map` over. Needed to be parsed as JSON
-  - Use an `if () {}` block
-
-- How to use `useContext` so that state is available to children components?
-- How to pass methods and actions to children components?
-- What component to add the modal to? What component will trigger the modal?
-
-```bash
-npm i react-modal
-npm i --save-dev @types/react-modal
-```
-
-# Netlify Edge Functions
-
-# Deploy to Netlify
-
-```bash
-npm run build
-
-# Deploy to a draft URL
-netlify deploy --dir 'build/' --message 'deployed with netlify-cli' --open 
-# https://652a4c3003f1d6028128e18c--wuip-movies.netlify.app
-
-# If everything looks good on your draft URL, deploy it to your main site URL with the --prod flag.
-netlify deploy --dir 'build/' --prod --message 'deployed with netlify-cli' --open 
-```
-
-Building with the `command` in `netlify.toml` keeps giving an error, npm run `build` script not found
-
-[All Netlify.toml & yml values](https://gist.github.com/DavidWells/43884f15aed7e4dcb3a6dad06430b756)
-
-
----
-
 
 [Icons](https://thenounproject.com/browse/collection-icon/entertainment-and-movie-solid-streaming-on-screen-127119/?p=1)
 - Movie by WEBTECHOPS LLP from <a href="https://thenounproject.com/browse/icons/term/movie/" target="_blank" title="Movie Icons">Noun Project</a> (CC BY 3.0)
 - Movie by TTHNga from <a href="https://thenounproject.com/browse/icons/term/movie/" target="_blank" title="Movie Icons">Noun Project</a> (CC BY 3.0)
-
-Troubleshooting
----
-**Getting HTML from Netlify function instead of JSON**: Check the function URL. The default URL structure is `https://<YOUR DOMAIN>/.netlify/functions/<FUNCTION NAME>` but if you give a custom path, it will become `https://<YOUR DOMAIN>/<FUNCTION PATH>`
