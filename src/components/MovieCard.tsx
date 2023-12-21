@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import GenreTags from './GenreTags'
-import './MovieListItem.scss'
+import './MovieCard.scss'
 import { fetchMovieDetails } from '../api/api'
 import ReactModal from 'react-modal'
 import { getMovieTrailer } from '../helpers'
 import Youtube from './Youtube'
 import { Link } from 'react-router-dom'
 
-interface MovieListItemProps {
+interface MovieCardProps {
   id: number
   title: string
   overview: string
@@ -25,7 +25,7 @@ function getGenreNames(genresArray: any) {
   return genreNames
 }
 
-export default function MovieListItem({
+export default function MovieCard({
   id,
   title,
   overview,
@@ -34,7 +34,7 @@ export default function MovieListItem({
 }: // openModal,
 // closeModal,
 // isModalOpen,
-MovieListItemProps) {
+MovieCardProps) {
   const [movieDetails, setMovieDetails] = useState<Movie>()
   const [movieTrailer, setMovieTrailer] = useState({
     name: 'Trailer',
@@ -89,13 +89,13 @@ MovieListItemProps) {
         <Youtube videoId={movieTrailer.id} width="100%" height="720" />
       </ReactModal>
       <Link
-        className="MovieListItem w-full flex flex-row self-stretch overflow-hidden border-2 border-transparent rounded-2xl hover:cursor-pointer"
+        className="MovieCard w-full flex flex-row self-stretch overflow-hidden border-2 border-transparent rounded-2xl hover:cursor-pointer"
         to={`/movie/${id}`}
       >
-        <img src={posterPath} alt={title} className="MovieListItem__Poster" />
+        <img src={posterPath} alt={title} className="MovieCard__Poster" />
         <div className="p-3">
           <header className="flex flex-column mb-3 md:flex-row md:justify-between md:content-center md:items-center">
-            <h2 className="MovieListItem__Title m-0 mb-2">{title}</h2>
+            <h2 className="MovieCard__Title m-0 mb-2">{title}</h2>
             <span>
               <strong>{rating}</strong>
               <small> / 10</small>
@@ -119,7 +119,7 @@ MovieListItemProps) {
             : null}
 
           {/* {movieTrailer ? (
-            <p className="MovieListItem__Trailer flex gap-2 items-center">
+            <p className="MovieCard__Trailer flex gap-2 items-center">
               <svg
                 viewBox="0 0 512 512"
                 fill="none"
@@ -143,10 +143,10 @@ MovieListItemProps) {
           ) : null} */}
 
           {/* {movieDetails ? (
-            <p className="MovieListItem__Tagline">{movieDetails.tagline}</p>
+            <p className="MovieCard__Tagline">{movieDetails.tagline}</p>
           ) : null} */}
 
-          {/* <p className="MovieListItem__Overview">{overview}</p> */}
+          {/* <p className="MovieCard__Overview">{overview}</p> */}
         </div>
       </Link>
     </>
@@ -158,7 +158,7 @@ MovieListItemProps) {
 // https://answers.acrobatusers.com/How-set-word-limit-character-limit-text-field-q109228.aspx
 
 {
-  /* <MovieListItem
+  /* <MovieCard
           id={615656}
           title="Meg 2: The Trench"
           overview="An exploratory dive into the deepest depths of the ocean of a daring research team spirals into chaos when a malevolent mining operation threatens their mission and forces them into a high-stakes battle for survival."

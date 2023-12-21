@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import MovieListItem from '../components/MovieListItem'
+import MovieCard from '../components/MovieCard'
 import { getPosterURL } from '../helpers'
 import { fetchNowPlayingMovies } from '../api/api'
+import CardList from '../components/CardList'
 
 export default function NowPlayingPage() {
   const [nowPlayingMovies, setNowPlayingMovies] = useState([])
@@ -17,7 +18,7 @@ export default function NowPlayingPage() {
   }, [])
 
   return (
-    <div className="MovieList grid gap-8 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+    <CardList>
       {loading ? (
         <p>Loading..</p>
       ) : nowPlayingMovies ? (
@@ -25,7 +26,7 @@ export default function NowPlayingPage() {
           const { id, title, overview, poster_path, vote_average } = movie
           return (
             <>
-              <MovieListItem
+              <MovieCard
                 key={index}
                 id={id}
                 title={title}
@@ -39,6 +40,6 @@ export default function NowPlayingPage() {
       ) : (
         <p>Could not find any movies</p>
       )}
-    </div>
+    </CardList>
   )
 }
