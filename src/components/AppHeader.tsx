@@ -1,9 +1,9 @@
 import './AppHeader.scss'
-import { NavLink } from 'react-router-dom'
+import NavLink from './NavLink'
 
 export default function AppHeader() {
   return (
-    <header className="text-center mb-12">
+    <header className="mb-12">
       <nav className="MainNav flex justify-center gap-4">
         <NavLink to="/now-playing">
           <svg

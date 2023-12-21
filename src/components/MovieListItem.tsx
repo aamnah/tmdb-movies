@@ -89,12 +89,12 @@ MovieListItemProps) {
         <Youtube videoId={movieTrailer.id} width="100%" height="720" />
       </ReactModal>
       <Link
-        className="MovieListItem w-full flex flex-row self-stretch overflow-hidden border-2 border-transparent rounded-2xl"
+        className="MovieListItem w-full flex flex-row self-stretch overflow-hidden border-2 border-transparent rounded-2xl hover:cursor-pointer"
         to={`/movie/${id}`}
       >
         <img src={posterPath} alt={title} className="MovieListItem__Poster" />
-        <div className="p-4">
-          <header className="flex flex-column mb-4 md:flex-row md:justify-between md:content-center md:items-center">
+        <div className="p-3">
+          <header className="flex flex-column mb-3 md:flex-row md:justify-between md:content-center md:items-center">
             <h2 className="MovieListItem__Title m-0 mb-2">{title}</h2>
             <span>
               <strong>{rating}</strong>
@@ -102,9 +102,21 @@ MovieListItemProps) {
             </span>
           </header>
 
-          {movieDetails ? (
+          {/* {movieDetails ? (
             <GenreTags genres={getGenreNames(movieDetails.genres)} />
-          ) : null}
+          ) : null} */}
+
+          {movieDetails
+            ? getGenreNames(movieDetails.genres).map((item, index) => (
+                <small
+                  key={index}
+                  className="[&:not(:last-child)]:after:content-['\2022'] after:ml-0.5 after:text-slate-700 text-slate-400"
+                >
+                  {' '}
+                  {item}{' '}
+                </small>
+              ))
+            : null}
 
           {/* {movieTrailer ? (
             <p className="MovieListItem__Trailer flex gap-2 items-center">
