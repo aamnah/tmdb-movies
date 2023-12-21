@@ -132,28 +132,8 @@ Building with the `command` in `netlify.toml` keeps giving an error, npm run `bu
 
 [All Netlify.toml & yml values](https://gist.github.com/DavidWells/43884f15aed7e4dcb3a6dad06430b756)
 
+
 ---
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-```bash
-# Run the app in the development mode.
-npm start 
-
-# Launch the test runner in the interactive watch mode.
-npm test 
-
-# Build the app for production to the `build` folder.
-npm run build
-
-npm run eject
-```
 
 
 [Icons](https://thenounproject.com/browse/collection-icon/entertainment-and-movie-solid-streaming-on-screen-127119/?p=1)

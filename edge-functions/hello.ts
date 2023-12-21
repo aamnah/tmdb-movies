@@ -5,3 +5,5 @@ export default async function Hello(request: Request, context: Context) {
 }
 
 export const config: Config = { path: '/test' }
+
+
