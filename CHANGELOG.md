@@ -4,16 +4,17 @@ TODO
 - [ ] Add loading states and skeleton screens
 - [ ] Trim movie overview text
 - [ ] Add Play button on hover
-- [x] Play movie trailer on click
 - [ ] Add Load More or Infinite Scroll for _Now Playing_
 - [ ] Add _Popular_, _Top Rated_ and _Upcoming_ movie lists
 - [ ] Fetch smaller images on small devices
 - [ ] Show rotten tomatoes and imdb ratings
+- [x] Play movie trailer on click
 - [x] Fetch videos for every movie
 - [x] Find the best video (official, trailer) among the videos array and link to that
-- [ ] Convert from Sass to TailwindCSS
 - [ ] Add API response caching
 - [ ] Bug: Not all movies have trailers (For example: Muchachos, la película de la gente, ID: 1206029) Causes a name not found error
+- [ ] Convert from Sass to TailwindCSS
+- [ ] Add [loader functions](https://reactrouter.com/en/main/start/tutorial#loading-data) to screens
 
 ## 2023-12-19
 - [x] Move to Vite because CRA is no longer maintained and was giving warnings
