@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import AppHeader from './AppHeader'
 import MovieListItem from './MovieListItem'
 import { getPosterURL } from './helpers'
+import { fetchNowPlayingMovies } from '../api/api'
 
 import './App.scss'
 
@@ -11,20 +12,13 @@ function App() {
   const [nowPlayingMovies, setNowPlayingMovies] = useState([])
   const [loading, setLoading] = useState(true)
 
-  async function fetchNowPlayingMovies() {
-    const response = await fetch('/api/movies')
-    const json = await response.json()
-
-    return json.data.results
-  }
-
   useEffect(() => {
     fetchNowPlayingMovies()
-      .then((results) => {
+      .then((results: any) => {
         setNowPlayingMovies(results)
         setLoading(false)
       })
-      .catch((error) => console.error(error))
+      .catch((error: any) => console.error(error))
   }, [])
 
   return (
@@ -42,7 +36,7 @@ function App() {
                   title={title}
                   overview={overview}
                   posterPath={getPosterURL({ path: poster_path, width: 300 })}
-                  rating={vote_average.toFixed(2)}
+                  rating={vote_average.toFixed(1)}
                 />
               </>
             )

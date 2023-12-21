@@ -18,8 +18,9 @@ export function getPosterURL({ path = '', width = 154 }) {
   // the poster_path returned from the API includes `/` at the beginning
 }
 
-export function getMovieTrailer(videos: Array<MovieVideoResponseType>) {
+export async function getMovieTrailer(videos: Array<MovieVideoResponseType>) {
   const baseUrl = `https://www.youtube.com/watch?v=`
+  console.table(videos)
   let videoObject = {
     name: videos[0].name,
     id: videos[0].key,
@@ -33,14 +34,14 @@ export function getMovieTrailer(videos: Array<MovieVideoResponseType>) {
         vid.name.toLowerCase().includes('official') &&
         vid.name.toLowerCase().includes('trailer')
       ) {
-        console.log('official trailer', vid.name, vid.key)
+        console.log(`OFFICIAL TRAILER_: Name: ${vid.name}, Key: ${vid.key}`)
 
         videoObject.name = vid.name
         videoObject.url = `${baseUrl}${vid.key}`
 
         return videoObject
       } else if (vid.name.toLowerCase().includes('trailer')) {
-        console.log('trailer', vid.name, vid.key)
+        console.log(`TRAILER_: Name: ${vid.name}, Key: ${vid.key}`)
 
         videoObject.name = vid.name
         videoObject.url = `${baseUrl}${vid.key}`

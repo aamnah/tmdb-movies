@@ -40,6 +40,11 @@ export default function MovieListItem({
 // isModalOpen,
 MovieListItemProps) {
   const [movieDetails, setMovieDetails] = useState<Movie>()
+  const [movieTrailer, setMovieTrailer] = useState({
+    name: '',
+    url: '',
+    id: '',
+  })
   const [modalIsOpen, setIsOpen] = useState<boolean>(false)
 
   async function getMovieDetails() {
@@ -65,9 +70,12 @@ MovieListItemProps) {
     getMovieDetails()
   }, [])
 
-  let movieTrailer = { name: '', url: '', id: '' }
+  // let movieTrailer = { name: '', url: '', id: '' }
   if (movieDetails && movieDetails.videos.results) {
-    movieTrailer = getMovieTrailer(movieDetails.videos.results)
+    // movieTrailer = getMovieTrailer(movieDetails.videos.results)
+    getMovieTrailer(movieDetails.videos.results).then((results) =>
+      setMovieTrailer(results)
+    )
   }
 
   return (
@@ -99,7 +107,7 @@ MovieListItemProps) {
             <GenreTags genres={getGenreNames(movieDetails.genres)} />
           ) : null}
 
-          {movieDetails ? (
+          {movieTrailer ? (
             <p className="MovieListItem__Trailer">
               <svg
                 viewBox="0 0 512 512"

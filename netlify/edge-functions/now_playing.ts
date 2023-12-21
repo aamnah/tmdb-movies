@@ -38,4 +38,4 @@ export default async function fetchNowPlayingMovies(
   }
 }
 
-export const config: Config = { path: '/api/movies' }
+export const config: Config = { path: '/api/now_playing' }
