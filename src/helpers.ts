@@ -1,9 +1,15 @@
-import { Genre, Video } from './api/tmdb_api'
+import { Genre, Video, poster_sizes } from './api/tmdb_api.types'
 
-export function getPosterURL({ path = '', width = 154 }) {
+export function getPosterURL({
+  path = '',
+  width = poster_sizes.w154,
+}: {
+  path: string
+  width: string
+}) {
   // https://developer.themoviedb.org/docs/image-basics
   // available sizes: https://developer.themoviedb.org/reference/configuration-details
-  return `https://image.tmdb.org/t/p/w${width}${path}`
+  return `https://image.tmdb.org/t/p/${width}${path}`
   // the poster_path returned from the API includes `/` at the beginning
 }
 

@@ -3,6 +3,7 @@ import MovieCard from '../components/MovieCard'
 import { getPosterURL } from '../helpers'
 import { fetchNowPlayingMovies } from '../api/api'
 import CardList from '../components/CardList'
+import { poster_sizes } from '../api/tmdb_api.types'
 
 export default function NowPlayingPage() {
   const [nowPlayingMovies, setNowPlayingMovies] = useState([])
@@ -31,7 +32,10 @@ export default function NowPlayingPage() {
                 id={id}
                 title={title}
                 overview={overview}
-                posterPath={getPosterURL({ path: poster_path, width: 300 })}
+                posterPath={getPosterURL({
+                  path: poster_path,
+                  width: poster_sizes.w342,
+                })}
                 rating={vote_average.toFixed(1)}
               />
             </>
