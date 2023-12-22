@@ -1,11 +1,14 @@
+// We are assuming that the API response are trusted
+// and are in the correct format
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+
 import axios from 'axios'
+import { MovieDetail, MovieList } from './tmdb_api.types'
+import { getErrorMessage } from '../helpers'
 
 const TMDB_API_TOKEN: string = import.meta.env.VITE_TMDB_API_TOKEN
-console.log('🚀 ~ file: api.ts:4 ~ TMDB_API_TOKEN:', TMDB_API_TOKEN)
-console.log(
-  '🚀 ~ file: api.ts:4 ~ import.meta.env.VITE_TMDB_API_TOKEN:',
-  import.meta.env.VITE_TMDB_API_TOKEN
-)
+
 const TMDB_API_BASE_URL = 'https://api.themoviedb.org/3'
 
 // const TMDB_API_ENDPOINT = {
@@ -14,58 +17,90 @@ const TMDB_API_BASE_URL = 'https://api.themoviedb.org/3'
 //   movie_videos: `/movie/{movie_id}/videos`,
 // }
 
+interface ApiResponse {
+  data: unknown
+  error?: string
+}
+
+async function typedFetch<T>(request: RequestInfo): Promise<T> {
+  const response = await fetch(request)
+  const body = await response.json()
+  return body
+}
+
 export async function fetchNowPlayingMovies() {
   try {
-    const response = await fetch('/api/now_playing')
-    const json = await response.json()
+    const response = await typedFetch<ApiResponse>('/api/now_playing')
+    // const response = await fetch('/api/now_playing')
 
-    // console.log(`Now Playing Movies:`, response.data.results)
+    const data = response.data as MovieList
+    const results: MovieList['results'] = data.results
+    // console.log(`Now Playing Movies:`, results)
 
-    return json.data.results
+    return results
   } catch (error) {
-    console.error(`There was an error with the Axios request: \n${error}`)
+    console.error(
+      `There was an error with the Fetch request: \n${getErrorMessage(error)}`
+    )
     return error
   }
 }
 
 export async function fetchPopularMovies() {
   try {
-    const response = await fetch('/api/popular')
-    const json = await response.json()
-
-    // console.log(`Popular Movies:`, response.data.results)
-    return json.data.results
+    const response = await typedFetch<ApiResponse>('/api/popular')
+    const data = response.data as MovieList
+    const results: MovieList['results'] = data.results
+    // console.log(`Popular Movies:`, results)
+    return results
   } catch (error) {
-    console.error(`There was an error with the Axios request: \n${error}`)
+    console.error(
+      `There was an error with the Fetch request: \n${getErrorMessage(error)}`
+    )
     return error
   }
 }
 
 export async function fetchTopRatedMovies() {
   try {
-    const response = await fetch('/api/top_rated')
-    const json = await response.json()
-
-    // console.log(`Top Rated Movies:`, response.data.results)
-    return json.data.results
+    const response = await typedFetch<ApiResponse>('/api/top_rated')
+    const data = response.data as MovieList
+    const results: MovieList['results'] = data.results
+    // console.log(`Top Rated Movies:`, results)
+    return results
   } catch (error) {
-    console.error(`There was an error with the Axios request: \n${error}`)
+    console.error(
+      `There was an error with the Fetch request: \n${getErrorMessage(error)}`
+    )
     return error
   }
 }
 
 export async function fetchUpcomingMovies() {
   try {
-    const response = await fetch('/api/upcoming')
-    const json = await response.json()
-
+    const response = await typedFetch<ApiResponse>('/api/upcoming')
+    const data = response.data as MovieList
+    const results: MovieList['results'] = data.results
     // console.log(`Upcoming Movies:`, response.data.results)
-    return json.data.results
+    return results
   } catch (error) {
-    console.error(`There was an error with the Axios request: \n${error}`)
+    console.error(
+      `There was an error with the Fetch request: \n${getErrorMessage(error)}`
+    )
     return error
   }
 }
+
+// export async function fetchMovieDetails(movieId: number) {
+//   try {
+//     const response = await typedFetch(`/api/movie/${movieId}`)
+//     // console.log(`Movie Details: ${response.data.original_title}`, response.data)
+//     return response.data
+//   } catch (error) {
+//     console.error(`There was an error with the Fetch request: \n${getErrorMessage(error)}`)
+//     return error
+//   }
+// }
 
 export async function fetchMovieDetails(movieId: number) {
   // https://axios-http.com/docs/req_config
@@ -79,9 +114,11 @@ export async function fetchMovieDetails(movieId: number) {
       },
     })
     // console.log(`Movie Details: ${response.data.original_title}`, response.data)
-    return response.data
+    return response.data as MovieDetail
   } catch (error) {
-    console.error(`There was an error with the Axios request: \n${error}`)
+    console.error(
+      `There was an error with the Axios request: \n${getErrorMessage(error)}`
+    )
     return error
   }
 }

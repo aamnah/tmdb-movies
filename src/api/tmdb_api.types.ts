@@ -37,8 +37,10 @@ export interface MovieDetail extends Movie {
   images: { backdrops: []; logos: []; posters: [] }
 }
 
+// Upcoming and Now Playing lists have dates
+// while Popular and Top Rated lists do not
 export interface MovieList {
-  dates: {
+  dates?: {
     maximum: Date
     minimum: Date
   }
@@ -77,7 +79,7 @@ export interface Video {
   type: string
 }
 
-export interface Videos extends Video {
+export interface Videos {
   id: number
   results: Video[]
 }
