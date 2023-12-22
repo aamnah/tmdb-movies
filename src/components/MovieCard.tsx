@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
-import GenreTags from './GenreTags'
+// import GenreTags from './GenreTags'
 import './MovieCard.scss'
 import { fetchMovieDetails } from '../api/api'
 import ReactModal from 'react-modal'
-import { getMovieTrailer } from '../helpers'
+// import { getMovieTrailer } from '../helpers'
 import Youtube from './Youtube'
 import { Link } from 'react-router-dom'
 
-interface MovieCardProps {
+interface Props {
   id: number
   title: string
   overview: string
@@ -34,7 +34,7 @@ export default function MovieCard({
 }: // openModal,
 // closeModal,
 // isModalOpen,
-MovieCardProps) {
+Props) {
   const [movieDetails, setMovieDetails] = useState<Movie>()
   const [movieTrailer, setMovieTrailer] = useState({
     name: 'Trailer',
@@ -95,7 +95,7 @@ MovieCardProps) {
         <img src={posterPath} alt={title} className="MovieCard__Poster" />
         <div className="p-3">
           <header className="flex flex-column mb-3 md:flex-row md:justify-between md:content-center md:items-center">
-            <h2 className="MovieCard__Title m-0 mb-2">{title}</h2>
+            <h2 className="MovieCard__Title m-0 mb-2 ">{title}</h2>
             <span>
               <strong>{rating}</strong>
               <small> / 10</small>

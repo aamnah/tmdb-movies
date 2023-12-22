@@ -11,17 +11,19 @@ TODO
 - [x] Play movie trailer on click
 - [x] Fetch videos for every movie
 - [x] Find the best video (official, trailer) among the videos array and link to that
-- [ ] Add API response caching
 - [ ] Bug: Not all movies have trailers (For example: Muchachos, la película de la gente, ID: 1206029) Causes a name not found error
 - [ ] Convert from Sass to TailwindCSS
-- [ ] Add [loader functions](https://reactrouter.com/en/main/start/tutorial#loading-data) to screens
 
-## 2023-12-19
+## 2023-12-22
+- [x] Add [loader functions](https://reactrouter.com/en/main/start/tutorial#loading-data) to load data for screens
+
+## 2023-12-21
 - [x] Move to Vite because CRA is no longer maintained and was giving warnings
 - [x] Add Routing with React Router
+- [x] Add API response caching
 
-## 2023-12-20
-- [x] move fetching weather details to Netlify function. Because "The environment variables exist in the build system alone. They do not exist anymore once the build completes."
+## 2023-12-19
+- [x] move fetching movie details to Netlify function. Because "The environment variables exist in the build system alone. They do not exist anymore once the build completes."
   - https://answers.netlify.com/t/environment-variables-not-working-in-production/54838/4
   - https://answers.netlify.com/t/support-guide-how-do-i-keep-my-api-keys-tokens-safe-using-netlify-functions/293
 

@@ -12,6 +12,7 @@ function errorMessage(error: unknown): string {
     return 'Unknown error'
   }
 }
+
 export default function ErrorPage() {
   const error = useRouteError()
   console.error(error)

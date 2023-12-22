@@ -8,7 +8,13 @@ import Upcoming from './routes/Upcoming.tsx'
 import TopRated from './routes/TopRated.tsx'
 import ErrorPage from './routes/Error.tsx'
 import Root from './routes/root.tsx'
-import Movie from './routes/Movie.tsx'
+import Movie, { loader as movieLoader } from './routes/Movie.tsx'
+import {
+  fetchNowPlayingMovies,
+  fetchPopularMovies,
+  fetchTopRatedMovies,
+  fetchUpcomingMovies,
+} from './api/api.ts'
 
 const router = createBrowserRouter([
   {
@@ -23,22 +29,27 @@ const router = createBrowserRouter([
       {
         path: 'now-playing',
         element: <NowPlaying />,
+        loader: fetchNowPlayingMovies,
       },
       {
         path: 'popular',
         element: <Popular />,
+        loader: fetchPopularMovies,
       },
       {
         path: 'upcoming',
         element: <Upcoming />,
+        loader: fetchUpcomingMovies,
       },
       {
         path: 'top-rated',
         element: <TopRated />,
+        loader: fetchTopRatedMovies,
       },
       {
         path: 'movie/:movieId',
         element: <Movie />,
+        loader: movieLoader,
       },
     ],
   },

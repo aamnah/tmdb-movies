@@ -28,6 +28,45 @@ export async function fetchNowPlayingMovies() {
   }
 }
 
+export async function fetchPopularMovies() {
+  try {
+    const response = await fetch('/api/popular')
+    const json = await response.json()
+
+    // console.log(`Popular Movies:`, response.data.results)
+    return json.data.results
+  } catch (error) {
+    console.error(`There was an error with the Axios request: \n${error}`)
+    return error
+  }
+}
+
+export async function fetchTopRatedMovies() {
+  try {
+    const response = await fetch('/api/top_rated')
+    const json = await response.json()
+
+    // console.log(`Top Rated Movies:`, response.data.results)
+    return json.data.results
+  } catch (error) {
+    console.error(`There was an error with the Axios request: \n${error}`)
+    return error
+  }
+}
+
+export async function fetchUpcomingMovies() {
+  try {
+    const response = await fetch('/api/upcoming')
+    const json = await response.json()
+
+    // console.log(`Upcoming Movies:`, response.data.results)
+    return json.data.results
+  } catch (error) {
+    console.error(`There was an error with the Axios request: \n${error}`)
+    return error
+  }
+}
+
 export async function fetchMovieDetails(movieId: number) {
   // https://axios-http.com/docs/req_config
   try {
