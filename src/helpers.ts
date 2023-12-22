@@ -1,4 +1,22 @@
+import { isRouteErrorResponse } from 'react-router-dom'
+import { AxiosError } from 'axios'
+
 import { Genre, Video, poster_sizes } from './api/tmdb_api.types'
+
+export function getErrorMessage(error: unknown): string {
+  if (isRouteErrorResponse(error)) {
+    return `${error.status} ${error.statusText}`
+  } else if (error != undefined && error instanceof Error) {
+    return error.message
+  } else if (error instanceof AxiosError) {
+    return error.message
+  } else if (typeof error === 'string') {
+    return error
+  } else {
+    console.error(error)
+    return 'Unknown error'
+  }
+}
 
 export function getPosterURL({
   path = '',
