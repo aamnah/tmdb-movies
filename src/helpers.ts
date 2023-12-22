@@ -1,15 +1,4 @@
-export interface MovieVideoResponseType {
-  id: string
-  iso_639_1: string
-  iso_3166_1: string
-  key: string
-  name: string
-  official: boolean
-  published_at: string
-  site: string
-  size: number
-  type: string
-}
+import { Genre, Video } from './api/tmdb_api'
 
 export function getPosterURL({ path = '', width = 154 }) {
   // https://developer.themoviedb.org/docs/image-basics
@@ -18,10 +7,20 @@ export function getPosterURL({ path = '', width = 154 }) {
   // the poster_path returned from the API includes `/` at the beginning
 }
 
-export async function getMovieTrailer(videos: Array<MovieVideoResponseType>) {
+export function getGenreNames(genresArray: Genre[]): string[] {
+  // Takes an array of Genres objects { id: number; name: string } and
+  // returns an array of only names string[]
+  const genreNames: string[] = []
+  genresArray.map((genre: Genre) => {
+    genreNames.push(genre.name)
+  })
+  return genreNames
+}
+
+export function getMovieTrailer(videos: Video[]) {
   const baseUrl = `https://www.youtube.com/watch?v=`
   console.table(videos)
-  let videoObject = {
+  const videoObject = {
     name: videos[0].name,
     id: videos[0].key,
     url: `${baseUrl}${videos[0].key}`,
