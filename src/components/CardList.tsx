@@ -1,4 +1,10 @@
-export default function CardList({ children, ...rest }) {
+import { ReactNode } from 'react'
+
+interface Props<T> {
+  props: T
+  children: ReactNode
+}
+export default function CardList<T>({ children, ...rest }: Props<T>) {
   return (
     <div
       {...rest}
