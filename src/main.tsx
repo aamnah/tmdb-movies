@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './index.scss'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import NowPlaying from './routes/NowPlaying.tsx'
-import Popular from './routes/Popular.tsx'
-import Upcoming from './routes/Upcoming.tsx'
-import TopRated from './routes/TopRated.tsx'
+import MovieList from './routes/MovieList.tsx'
 import ErrorPage from './routes/Error.tsx'
 import Root from './routes/root.tsx'
 import Movie, { loader as movieLoader } from './routes/Movie.tsx'
@@ -33,17 +31,17 @@ const router = createBrowserRouter([
       },
       {
         path: 'popular',
-        element: <Popular />,
+        element: <MovieList />,
         loader: fetchPopularMovies,
       },
       {
         path: 'upcoming',
-        element: <Upcoming />,
+        element: <MovieList />,
         loader: fetchUpcomingMovies,
       },
       {
         path: 'top-rated',
-        element: <TopRated />,
+        element: <MovieList />,
         loader: fetchTopRatedMovies,
       },
       {
