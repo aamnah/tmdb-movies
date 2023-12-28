@@ -1,3 +1,4 @@
+import { XMarkIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 import ReactModal from 'react-modal'
 import { LoaderFunctionArgs, useLoaderData } from 'react-router-dom'
@@ -18,6 +19,11 @@ export default function Movie() {
   const trailer = getMovieTrailer(movie.videos.results)
   const [modalIsOpen, setIsOpen] = useState<boolean>(false)
 
+  // const trailer = {
+  //   id: 'c3suauAz0zQ',
+  //   name: 'Official trailer',
+  //   url: `https://www.youtube.com/watch?v=2g811Eo7K8U`,
+  // }
   function openModal(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
     e.preventDefault() // don't follow the URL in the href
     setIsOpen(true)
@@ -31,12 +37,17 @@ export default function Movie() {
       <ReactModal
         isOpen={modalIsOpen}
         // style={customStyles}
-        className="Modal"
-        overlayClassName="ModalOverlay"
+        className="w-full bg-black rounded-2xl p-4 text-right flex flex-col items-end"
+        overlayClassName="fixed top-0 left-0 right-0 bottom-0  flex justify-center content-center items-center p-6 bg-obsidian/90"
         contentLabel={movie.title}
       >
-        <button onClick={closeModal} className="ModalCloseButton">
-          close &#10060;
+        <button
+          onClick={closeModal}
+          type="button"
+          className="text-white rounded-lg text-center py-2 px-3 mb-2 cursor-pointer flex justify-center"
+        >
+          Close{' '}
+          <XMarkIcon className="block h-6 w-6 text-white" aria-hidden="true" />
         </button>
         <Youtube videoId={trailer.id} width="100%" height="720" />
       </ReactModal>

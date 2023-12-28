@@ -2,40 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-$color-oxford-blue: #011936;
-$color-mint-cream: #F4FFFD;
-$color-naples-yellow: #F9DC5C;
-$color-red-crayola: #ED254E;
-$color-charcoal: #465362;
-$color-rich-black: #000411;
-
-$breakpoint-xs: 300;
-$breakpoint-sm: 600;
-$breakpoint-m: 900;
-$breakpoint-l: 1200;
-$breakpoint-xl: 1400;
-$breakpoint-xxl: 1600;
-
 :root {
   --color-oxford-blue: #011936;
   --color-mint-cream: #F4FFFD;
   --color-naples-yellow: #F9DC5C;
-  // --color-red-crayola: #ED254E;
+  --color-red-crayola: #ED254E;
   --color-red-crayola: rgb(237 37 78);
-  --color-charcoal: #465362;
   --color-rich-black: #000411;
-
-  --color-slate-50: #f8fafc;
-  --color-slate-100: #f1f5f9;
-  --color-slate-200: #e2e8f0;
-  --color-slate-300: #cbd5e1;
-  --color-slate-400: #94a3b8;
-  --color-slate-500: #64748b;
-  --color-slate-600: #475569;
-  --color-slate-700: #334155;
-  --color-slate-800: #1e293b;
-  --color-slate-900: #0f172a;
-  --color-slate-950: #020617;
 }
 
 body {
@@ -46,7 +19,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background: var(--color-rich-black);
 }
 
 code {
