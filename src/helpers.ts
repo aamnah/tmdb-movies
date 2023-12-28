@@ -47,43 +47,45 @@ export function getGenreNames(genresArray: Genre[]): string[] {
   return genreNames
 }
 
-export function getMovieTrailer(videos: Video[]): Trailer {
+export function getMovieTrailer(videos: Video[]): Trailer | undefined {
   const baseUrl = `https://www.youtube.com/watch?v=`
-  console.table(videos)
+  // console.table(videos)
 
-  // set the first video as default trailer
-  const trailer = {
-    name: videos[0].name,
-    id: videos[0].key,
-    url: `${baseUrl}${videos[0].key}`,
+  // get all videos where type: Trailer, official: true and site: YouTube
+  const trailers = videos.filter(
+    (video) =>
+      video.type === 'Trailer' && video.official && video.site === 'YouTube'
+    // checking for video.site because i am using youtube specific video player
+  )
+  // console.log('trailers: ')
+  // console.table(trailers)
+
+  if (!trailers) {
+    // if no trailers, return undefined
+    // make sure to check if you have trailers before showing related buttons/modals
+    return
   }
 
-  // if more than one video returned
-  if (videos.length > 1) {
-    videos.map((vid) => {
-      // .includes() is case-sensitive
-      if (
-        // see if name includes the words 'official' and 'trailer'
-        vid.name.toLowerCase().includes('official') &&
-        vid.name.toLowerCase().includes('trailer')
-      ) {
-        console.log(`OFFICIAL TRAILER_: Name: ${vid.name}, Key: ${vid.key}`)
+  // i don't need to set it to videos[0] because i am returning
+  // if no trailers before this code is reached
+  // but TS won't shut up
+  let trailerVideo = videos[0]
 
-        trailer.name = vid.name
-        trailer.url = `${baseUrl}${vid.key}`
+  if (trailers && trailers.length > 1) {
+    console.log('more than one trailer video')
+    // TODO: Decide on how to handle multiple trailer videos
+    // do i show multiple buttons and modals
+    // or do i pick one trailer?
+    trailerVideo = trailers[0]
+  } else if (trailers) {
+    trailerVideo = trailers[0]
+    console.log('only one trailer video')
+  }
 
-        return trailer
-      } else if (vid.name.toLowerCase().includes('trailer')) {
-        // see if name includes the word 'trailer'
-        console.log(`TRAILER_: Name: ${vid.name}, Key: ${vid.key}`)
-
-        trailer.name = vid.name
-        trailer.url = `${baseUrl}${vid.key}`
-
-        return trailer
-      }
-      // return trailer
-    })
+  const trailer = {
+    name: trailerVideo.name,
+    id: trailerVideo.key,
+    url: `${baseUrl}${trailerVideo.key}`,
   }
 
   return trailer

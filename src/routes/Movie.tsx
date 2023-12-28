@@ -19,6 +19,7 @@ export default function Movie() {
   const trailer = getMovieTrailer(movie.videos.results)
   const [modalIsOpen, setIsOpen] = useState<boolean>(false)
 
+  // console.log('trailer: ', trailer)
   // const trailer = {
   //   id: 'c3suauAz0zQ',
   //   name: 'Official trailer',
@@ -34,23 +35,29 @@ export default function Movie() {
   }
   return (
     <>
-      <ReactModal
-        isOpen={modalIsOpen}
-        // style={customStyles}
-        className="w-full bg-black rounded-2xl p-4 text-right flex flex-col items-end"
-        overlayClassName="fixed top-0 left-0 right-0 bottom-0  flex justify-center content-center items-center p-6 bg-obsidian/90"
-        contentLabel={movie.title}
-      >
-        <button
-          onClick={closeModal}
-          type="button"
-          className="text-white rounded-lg text-center py-2 px-3 mb-2 cursor-pointer flex justify-center"
+      {trailer ? (
+        <ReactModal
+          isOpen={modalIsOpen}
+          ariaHideApp={false}
+          // style={customStyles}
+          className="w-full bg-black rounded-2xl p-4 text-right flex flex-col items-end"
+          overlayClassName="fixed top-0 left-0 right-0 bottom-0  flex justify-center content-center items-center p-6 bg-obsidian/90"
+          contentLabel={movie.title}
         >
-          Close{' '}
-          <XMarkIcon className="block h-6 w-6 text-white" aria-hidden="true" />
-        </button>
-        <Youtube videoId={trailer.id} width="100%" height="720" />
-      </ReactModal>
+          <button
+            onClick={closeModal}
+            type="button"
+            className="text-white rounded-lg text-center py-2 px-3 mb-2 cursor-pointer flex justify-center"
+          >
+            Close{' '}
+            <XMarkIcon
+              className="block h-6 w-6 text-white"
+              aria-hidden="true"
+            />
+          </button>
+          <Youtube videoId={trailer.id} width="100%" height="720" />
+        </ReactModal>
+      ) : null}
       <div className="grid grid-cols-[1fr_2fr] gap-4">
         <img
           src={getPosterURL({
