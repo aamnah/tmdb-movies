@@ -1,10 +1,15 @@
 import YouTube, { YouTubeProps } from 'react-youtube'
 
+interface Props extends YouTubeProps {
+  height?: string
+  width?: string
+}
+
 export default function Youtube({
-  height = '390',
-  width = '640',
+  height = '720',
+  width = '100%',
   videoId = '2g811Eo7K8U',
-}) {
+}: Props) {
   const onPlayerReady: YouTubeProps['onReady'] = (event) => {
     // access to player in all event handlers via event.target
     event.target.pauseVideo()
