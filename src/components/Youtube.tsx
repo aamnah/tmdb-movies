@@ -5,14 +5,10 @@ interface Props extends YouTubeProps {
   width?: string
 }
 
-export default function Youtube({
-  height = '720',
-  width = '100%',
-  videoId = '2g811Eo7K8U',
-}: Props) {
+export default function Youtube({ height = '720', width = '100%', videoId }: Props) {
   const onPlayerReady: YouTubeProps['onReady'] = (event) => {
     // access to player in all event handlers via event.target
-    event.target.pauseVideo()
+    event.target.playVideo()
   }
 
   const opts: YouTubeProps['opts'] = {
@@ -21,6 +17,7 @@ export default function Youtube({
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 1,
+      rel: 0,
     },
   }
 
