@@ -4,8 +4,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 
 import axios from 'axios'
-import { MovieDetail, MovieList } from './tmdb_api.types'
+
 import { getErrorMessage } from '../helpers'
+import { MovieDetail, MovieList } from './tmdb_api.types'
 
 const TMDB_API_TOKEN: string = import.meta.env.VITE_TMDB_API_TOKEN
 
@@ -102,7 +103,9 @@ export async function fetchUpcomingMovies() {
 //   }
 // }
 
-export async function fetchMovieDetails(movieId: number) {
+export async function fetchMovieDetails(
+  movieId: number
+): Promise<MovieDetail | Error> {
   // https://axios-http.com/docs/req_config
   try {
     const response = await axios({
@@ -115,10 +118,10 @@ export async function fetchMovieDetails(movieId: number) {
     })
     // console.log(`Movie Details: ${response.data.original_title}`, response.data)
     return response.data as MovieDetail
-  } catch (error) {
+  } catch (err) {
     console.error(
-      `There was an error with the Axios request: \n${getErrorMessage(error)}`
+      `There was an error with the Axios request: \n${getErrorMessage(err)}`
     )
-    return error
+    return err as Error
   }
 }
