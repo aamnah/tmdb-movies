@@ -1,18 +1,20 @@
+import './index.scss'
+
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.scss'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import NowPlaying from './routes/NowPlaying.tsx'
-import MovieList from './routes/MovieList.tsx'
-import ErrorPage from './routes/Error.tsx'
-import Root from './routes/root.tsx'
-import Movie, { loader as movieLoader } from './routes/Movie.tsx'
+
 import {
   fetchNowPlayingMovies,
   fetchPopularMovies,
   fetchTopRatedMovies,
   fetchUpcomingMovies,
 } from './api/api.ts'
+import ErrorPage from './routes/Error.tsx'
+import Movie, { loader as movieLoader } from './routes/Movie.tsx'
+import MovieList from './routes/MovieList.tsx'
+import NowPlaying from './routes/NowPlaying.tsx'
+import Root from './routes/root.tsx'
 
 const router = createBrowserRouter([
   {

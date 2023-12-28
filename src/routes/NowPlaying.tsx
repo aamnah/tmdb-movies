@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
+
+import { fetchNowPlayingMovies } from '../api/api'
+import { poster_sizes } from '../api/tmdb_api.types'
+import CardList from '../components/CardList'
 import MovieCard from '../components/MovieCard'
 import { getPosterURL } from '../helpers'
-import { fetchNowPlayingMovies } from '../api/api'
-import CardList from '../components/CardList'
-import { poster_sizes } from '../api/tmdb_api.types'
 
 export default function NowPlayingPage() {
   const [nowPlayingMovies, setNowPlayingMovies] = useState([])
