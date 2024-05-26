@@ -3,7 +3,7 @@ $border_radius: 16px;
 $max-height: 964px;
 
 .MovieCard {
-  background: rgba(255,255,255, 0.1);
+  background: rgba(255,255,255, 0.05);
   box-shadow: 4px 4px 16px rgba(0,0,0,0.1);
   color: rgba(255,255,255, 0.5);
   
@@ -49,14 +49,14 @@ $max-height: 964px;
     color: rgba(255,255,255, 0.8);
   }
 
-  &__Overview {
-    // Do not show overview on smaller screen, not enough space
-    display: none;
+  // &__Overview {
+  //   // Do not show overview on smaller screen, not enough space
+  //   display: none;
 
-    @media screen and (min-width: 600px) {
-      display: inherit;
-    }
-  }
+  //   @media screen and (min-width: 600px) {
+  //     display: inherit;
+  //   }
+  // }
   
 }
 
@@ -71,13 +71,13 @@ $max-height: 964px;
 
 
 
-.Modal {
-  background: black;
-  width: 100%;
-  border-radius: 16px;
-  padding: 2em;
-  text-align: right;
-}
+// .Modal {
+//   background: black;
+//   width: 100%;
+//   border-radius: 16px;
+//   padding: 2em;
+//   text-align: right;
+// }
 
 .ModalCloseButton {
   background: white;
@@ -91,17 +91,17 @@ $max-height: 964px;
   cursor: pointer;
 }
 
-.ModalOverlay {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  padding: 2em;
+// .ModalOverlay {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   align-content: center;
+//   padding: 2em;
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(255,255,255,0.8);
-}
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background-color: rgba(255,255,255,0.8);
+// }

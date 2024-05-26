@@ -23,7 +23,7 @@ export default function Card({
         <h2 className="m-0 mb-2 ">{title}</h2>
         <span>
           <strong>{rating}</strong>
-          <small> / 10</small>
+          {/* <small> / 10</small> */}
         </span>
       </div>
     </Link>
