@@ -17,7 +17,7 @@ export default async function fetchNowPlayingMovies(
       headers: { Authorization: `Bearer ${API_TOKEN}` },
     })
     const data = await response.json()
-    console.log(`Upcoming movies:`, data.results)
+    // console.log(`Upcoming movies:`, data.results)
     return Response.json(
       { data },
       // Add a second parameter to `Response.json`

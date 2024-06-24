@@ -14,9 +14,9 @@ export default async function fetchMovieDetails(request: Request, context: Conte
       headers: { Authorization: `Bearer ${API_TOKEN}` },
     })
     const data = await response.json()
-    console.log(`data:`, data)
-    console.log(`data.results:`, data.results)
-    console.log(`Movie Details: ${data.results.original_title}`, data.results)
+    // console.log(`data:`, data)
+    // console.log(`data.results:`, data.results)
+    // console.log(`Movie Details: ${data.results.original_title}`, data.results)
     return Response.json(
       { data },
       // Add a second parameter to `Response.json`
