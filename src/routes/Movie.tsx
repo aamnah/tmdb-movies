@@ -58,8 +58,8 @@ export default function Movie() {
           <Youtube videoId={trailer.id} width="100%" height="720" />
         </ReactModal>
       ) : null}
-      <div className="grid grid-cols-[1fr_2fr] gap-12">
-        <span className="flex justify-end">
+      <div className="flex flex-col gap-6 sm:flex-row sm:gap-12 mx-auto max-w-7xl">
+        <span>
           <img
             src={getPosterURL({
               path: movie.poster_path,

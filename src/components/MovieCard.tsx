@@ -29,13 +29,17 @@ export default function MovieCard({ id, title, posterPath, rating }: Props) {
   return (
     <>
       <Link
-        className="MovieCard w-full flex flex-row self-stretch overflow-hidden border-2 border-transparent rounded-2xl hover:cursor-pointer"
+        className="MovieCard w-full flex flex-row sm:flex-col self-stretch overflow-hidden max-h-[231px] sm:max-h-full border-2 border-transparent rounded-2xl hover:cursor-pointer bg-white/5 text-white/50 transition-all hover:bg-carmine hover:text-white"
         to={`/movie/${id}`}
       >
-        <img src={posterPath} alt={title} className="MovieCard__Poster" />
+        <img
+          src={posterPath}
+          alt={title}
+          className="max-h-[231px] sm:max-h-full rounded-l-2xl sm:rounded-t-2xl"
+        />
         <div className="p-3">
           <header className="flex flex-col mb-3 md:flex-row md:justify-between md:content-center md:items-center">
-            <h2 className="MovieCard__Title m-0 mb-2">{title}</h2>
+            <h2 className="m-0 mb-2 text-white/80">{title}</h2>
             <p className="flex gap-1.5 items-center">
               <svg
                 width="100%"

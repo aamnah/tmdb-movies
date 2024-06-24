@@ -19,11 +19,22 @@ export default function Card({
   ...rest
 }: Props<T>) {
   return (
-    <Link to={`/movie/${id}`} className={`${className}`} {...rest}>
-      <img src={posterPath} alt={title} className="rounded-xl" />
-      <div>
-        <h2 className="m-0 mb-2 ">{title}</h2>
-        <p className="flex gap-2 items-center">
+    <Link
+      to={`/movie/${id}`}
+      className={`group flex flex-row sm:flex-col max-h-[231px] sm:max-h-full overflow-hidden bg-white/10 hover:bg-carmine/50 shadow-sm rounded-2xl  text-white/50 hover:text-white transition-all border-2 border-transparent border-solid hover:border-carmine
+        ${className}`}
+      {...rest}
+    >
+      <img
+        src={posterPath}
+        alt={title}
+        className="max-h-[231px] sm:max-h-full rounded-l-2xl sm:rounded-t-2xl "
+      />
+      <div className="p-4">
+        <h2 className="m-0 mb-2 text-white/90 group-hover:text-white">
+          {title}
+        </h2>
+        <div className="flex gap-2 items-center">
           <svg
             width="100%"
             height="100%"
@@ -38,8 +49,8 @@ export default function Card({
               fill="#f5c518"
             ></path>
           </svg>
-          <span>{rating}</span>
-        </p>
+          <span className="text-white/90 group-hover:text-white">{rating}</span>
+        </div>
       </div>
     </Link>
   )

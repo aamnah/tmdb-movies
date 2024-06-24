@@ -1,38 +1,9 @@
-$border_radius: 16px;
-// $max-height: 231px;
-$max-height: 964px;
-
 .MovieCard {
-  background: rgba(255,255,255, 0.05);
   box-shadow: 4px 4px 16px rgba(0,0,0,0.1);
-  color: rgba(255,255,255, 0.5);
-  
-  transition: all .3s ease-in-out;
-  
-  @media screen and (min-width: 600px) {
-    flex-direction: column;
-    // flex-basis: calc(calc(100% / 2) - 5em);
-  }
  
   &:hover {
-    border-color: var(--color-red-crayola);
     background-color: #ED254E90;
-    color: rgba(255, 255, 255, 1);
   }
-
-  &__Poster {
-    // border needs to be the same as the MovieListItem border radius
-    border-top-left-radius: $border_radius; 
-    border-top-right-radius: $border_radius;
-    // max-height: $max-height;
-
-    @media screen and (max-width: 600px) {
-      max-height: 231px;
-      border-top-right-radius: 0;
-      border-bottom-left-radius: $border_radius;
-    }
-  }
-
 
   &__Trailer {
     a {
@@ -45,10 +16,6 @@ $max-height: 964px;
     }
   }
 
-  &__Title {
-    color: rgba(255,255,255, 0.8);
-  }
-
   // &__Overview {
   //   // Do not show overview on smaller screen, not enough space
   //   display: none;
@@ -59,17 +26,6 @@ $max-height: 964px;
   // }
   
 }
-
-// make the height of the movie item component and movie poster the same 
-// when the layout shows as row on smaller screens 
-@media screen and (max-width: 600px) {
-  .MovieListItem,
-  .MovieListItem__Poster {
-    max-height: 231px;
-  }
-}
-
-
 
 // .Modal {
 //   background: black;
