@@ -58,23 +58,26 @@ export default function Movie() {
           <Youtube videoId={trailer.id} width="100%" height="720" />
         </ReactModal>
       ) : null}
-      <div className="grid grid-cols-[1fr_2fr] gap-4">
-        <img
-          src={getPosterURL({
-            path: movie.poster_path,
-            width: poster_sizes.w500,
-          })}
-          alt={movie.title}
-          className="w-full rounded-2xl"
-        />
+      <div className="grid grid-cols-[1fr_2fr] gap-12">
+        <span className="flex justify-end">
+          <img
+            src={getPosterURL({
+              path: movie.poster_path,
+              width: poster_sizes.w500,
+            })}
+            alt={movie.title}
+            className="w-full max-w-96 h-full rounded-2xl"
+          />
+        </span>
+
         <div>
-          <h1 className="text-3xl font-semibold">{movie.title}</h1>
+          <h1 className="text-4xl font-semibold">{movie.title}</h1>
           <p>{formatDate(movie.release_date)}</p>
-          <GenreTags genres={getGenreNames(movie.genres)} />
+          <GenreTags genres={getGenreNames(movie.genres)} className="mb-6" />
           <p className="text-xl">{movie.tagline}</p>
-          <p>{movie.overview}</p>
+          <p className="max-w-2xl">{movie.overview}</p>
           {trailer ? (
-            <p className="MovieCard__Trailer flex gap-2 items-center">
+            <p className="inline-flex gap-2 items-center rounded-3xl bg-carmine-900 hover:bg-carmine-950 py-2 px-4">
               <svg
                 viewBox="0 0 512 512"
                 fill="none"

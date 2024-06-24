@@ -7,6 +7,7 @@ interface Props<T> {
   overview: string
   posterPath: string
   rating: number
+  className?: string
 }
 
 export default function Card({
@@ -14,10 +15,11 @@ export default function Card({
   title,
   posterPath,
   rating,
+  className,
   ...rest
 }: Props<T>) {
   return (
-    <Link to={`/movie/${id}`} className="" {...rest}>
+    <Link to={`/movie/${id}`} className={`${className}`} {...rest}>
       <img src={posterPath} alt={title} className="rounded-xl" />
       <div>
         <h2 className="m-0 mb-2 ">{title}</h2>

@@ -7,11 +7,11 @@ export default function ErrorPage() {
   console.error(error)
 
   return (
-    <div id="error-page">
-      <h1>Oops!</h1>
+    <div id="error-page" className="max-w-2xl mx-auto mt-12">
+      <h1 className="text-4xl">Oops!</h1>
       <p>Sorry, an unexpected error has occurred.</p>
       <p>
-        <i>{getErrorMessage(error)}</i>
+        <strong>{getErrorMessage(error)}</strong>
       </p>
     </div>
   )
