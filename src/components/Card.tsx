@@ -28,7 +28,7 @@ export default function Card({
       <img
         src={posterPath}
         alt={title}
-        className="max-h-[231px] sm:max-h-full rounded-l-2xl sm:rounded-t-2xl "
+        className="max-h-[231px] sm:max-h-full rounded-l-2xl sm:rounded-none sm:rounded-t-2xl"
       />
       <div className="p-4">
         <h2 className="m-0 mb-2 text-white/90 group-hover:text-white">
