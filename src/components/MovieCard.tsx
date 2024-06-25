@@ -35,7 +35,7 @@ export default function MovieCard({ id, title, posterPath, rating }: Props) {
         <img
           src={posterPath}
           alt={title}
-          className="max-h-[231px] sm:max-h-full rounded-l-2xl sm:rounded-t-2xl"
+          className="max-h-[231px] sm:max-h-full rounded-l-2xl sm:rounded-none sm:rounded-t-2xl"
         />
         <div className="p-3">
           <header className="flex flex-col mb-3 md:flex-row md:justify-between md:content-center md:items-center">
